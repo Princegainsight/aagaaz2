@@ -10,8 +10,8 @@ const users = [
 const admins = [
     { id: "admin1", password: "adminpass1" },
     { id: "admin2", password: "adminpass2" },
-    { id: "sharedadmin", password: "sharedpass" }, // Shared credentials for admin
-    { id: "commonadmin", password: "commonpass" }  // Shared credentials for admin
+    { id: "shareduser", password: "sharedpass" }, // Shared credentials for admin
+    { id: "commonuser", password: "commonpass" }  // Shared credentials for admin
 ];
 
 // User login form handling
