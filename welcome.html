@@ -11,7 +11,6 @@
             margin: 0;
             padding: 0;
         }
-
         .welcome-container {
             width: 80%;
             margin: 50px auto;
@@ -20,20 +19,34 @@
             background-color: white;
             border-radius: 10px;
             box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+            position: relative;
         }
-
         h1 {
             color: #333;
         }
-
         p {
             color: #555;
         }
-
-        .buttons {
-            margin: 20px 0;
+        .logout-button {
+            position: absolute;
+            top: 20px;
+            right: 20px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #d9534f;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
         }
-
+        .logout-button:hover {
+            background-color: #c9302c;
+            transform: translateY(-2px);
+        }
+        .buttons {
+            margin: 80px 0 20px; /* Added margin to make space for logout button */
+        }
         button {
             margin: 10px;
             padding: 10px 20px;
@@ -45,18 +58,15 @@
             cursor: pointer;
             transition: background-color 0.3s, transform 0.3s;
         }
-
         button:hover {
             background-color: #4cae4c;
             transform: translateY(-2px);
         }
-
         .dropdowns {
             margin-top: 20px;
             display: flex;
             justify-content: space-around;
         }
-
         /* Generic dropdown */
         select {
             width: 200px;
@@ -66,18 +76,15 @@
             border: 1px solid #ccc;
             transition: border-color 0.3s;
         }
-
         select:hover {
             border-color: #5cb85c;
         }
-
         /* Custom dropdown */
         .custom-dropdown {
             position: relative;
             display: inline-block;
             width: 200px;
         }
-
         .dropdown-selection {
             display: flex;
             align-items: center;
@@ -90,16 +97,13 @@
             font-size: 14px;
             transition: border-color 0.3s;
         }
-
         .dropdown-arrow {
             margin-left: 10px;
             transition: transform 0.3s;
         }
-
         .custom-dropdown.active .dropdown-arrow {
             transform: rotate(180deg);
         }
-
         .dropdown-menu {
             position: absolute;
             width: 100%;
@@ -111,18 +115,15 @@
             display: none; /* Hidden by default */
             z-index: 100;
         }
-
         .custom-dropdown.active .dropdown-menu {
             display: block; /* Show dropdown menu when active */
         }
-
         .dropdown-item {
             padding: 10px;
             cursor: pointer;
             font-size: 14px;
             transition: background-color 0.3s;
         }
-
         .dropdown-item:hover {
             background-color: #f1f1f1;
         }
@@ -132,17 +133,15 @@
     <div class="welcome-container">
         <h1 id="welcomeMessage">Welcome!</h1>
         <p>You have successfully logged in.</p>
-
+        <button class="logout-button" onclick="logout()">Logout</button>
         <div class="buttons">
-            <button onclick="logout()">Logout</button>
-            <button>Button 1</button>
-            <button>Button 2</button>
-            <button>Button 3</button>
-            <button>Button 4</button>
-            <button>Button 5</button>
-            <button>Button 6</button>
+            <button id="button1">Button 1</button>
+            <button id="button2">Button 2</button>
+            <button id="button3">Button 3</button>
+            <button id="button4">Button 4</button>
+            <button id="button5">Button 5</button>
+            <button id="button6">Button 6</button>
         </div>
-
         <div class="dropdowns">
             <div class="select-dropdown">
                 <label for="genericSelect">Generic Dropdown:</label>
@@ -152,7 +151,6 @@
                     <option value="option3">Option 3</option>
                 </select>
             </div>
-
             <div class="custom-dropdown" id="customDropdown">
                 <div class="dropdown-selection" onclick="toggleDropdown()">
                     <span>Select an Option</span>
@@ -166,12 +164,11 @@
             </div>
         </div>
     </div>
-
     <script>
         // Set the welcome message with user ID
         const userId = localStorage.getItem('userId') || 'User';
         document.getElementById('welcomeMessage').textContent = `Welcome, ${userId}!`;
-
+        
         // Logout function
         function logout() {
             window.location.href = 'index.html'; // Redirect to index page
