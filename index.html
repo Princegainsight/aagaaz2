@@ -1,35 +1,6 @@
-  <!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="en">
 <head>
-     <!-- Gainsight PX Tag-->
-  <script type="text/javascript">
-  (function(n,t,a,e,co){var i="aptrinsic";n[i]=n[i]||function(){
-      (n[i].q=n[i].q||[]).push(arguments)},n[i].p=e;n[i].c=co;
-    var r=t.createElement("script");r.async=!0,r.src=a+"?a="+e;
-    var c=t.getElementsByTagName("script")[0];c.parentNode.insertBefore(r,c)
-  })(window,document,"https://web-sdk.aptrinsic.com/api/aptrinsic.js","AP-YR0EQEB1VEKS-2");
-
-      //passing user and account objects:
-aptrinsic("identify",
-  {
-  //User Fields
-    "id": "unique-user-id", // Required for logged in app users
-    "email": "userEmail@address.com",
-    "firstName": "John",
-    "lastName": "Smith",
-    "signUpDate": 1522697426479, //unix time in ms
-    "plan" : "gold", //Custom attributes - please create those custom attributes in Aptrinsic via Account Settings to be tracked.
-    "price" : 95.5,
-    "userHash": "" // optional transient for HMAC identification
-  },
-  {
-  //Account Fields
-    "id":"IBM", //Required
-    "name":"International Business Machine",
-    "Program": "Platinum" // flat custom attributes
- });
-      
-</script>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Login Page</title>
@@ -38,26 +9,60 @@ aptrinsic("identify",
 <body>
     <div class="container">
         <h1>Login</h1>
-        <form id="loginForm">
-            <div class="input-group">
-                <label for="userId">User ID:</label>
-                <input type="text" id="userId" required>
-            </div>
-            <div class="input-group">
-                <label for="password">Password:</label>
-                <input type="password" id="password" required>
-            </div>
-            <button type="submit">Login</button>
-        </form>
+
+        <!-- User Login Form -->
+        <div class="login-portal">
+            <h2>User Login</h2>
+            <form id="userLoginForm">
+                <div class="input-group">
+                    <label for="userId">User ID:</label>
+                    <input type="text" id="userId" required>
+                </div>
+                <div class="input-group">
+                    <label for="password">Password:</label>
+                    <input type="password" id="password" required>
+                </div>
+                <button type="submit">Login as User</button>
+            </form>
+        </div>
+
+        <!-- Admin Login Form -->
+        <div class="login-portal">
+            <h2>Admin Login</h2>
+            <form id="adminLoginForm">
+                <div class="input-group">
+                    <label for="adminId">Admin ID:</label>
+                    <input type="text" id="adminId" required>
+                </div>
+                <div class="input-group">
+                    <label for="adminPassword">Password:</label>
+                    <input type="password" id="adminPassword" required>
+                </div>
+                <button type="submit">Login as Admin</button>
+            </form>
+        </div>
         
+        <!-- Test Accounts Information -->
         <h2>Test Accounts</h2>
-        <ul>
-            <li>User ID: testuser1 | Password: password1</li>
-            <li>User ID: testuser2 | Password: password2</li>
-            <li>User ID: testuser3 | Password: password3</li>
-        </ul>
+        <div class="test-accounts">
+            <h3>Users</h3>
+            <ul>
+                <li>User Login - User ID: testuser1 | Password: password1</li>
+                <li>User Login - User ID: testuser2 | Password: password2</li>
+                <li>User Login - User ID: shareduser | Password: sharedpass</li>
+                <li>User Login - User ID: commonuser | Password: commonpass</li>
+            </ul>
+
+            <h3>Admins</h3>
+            <ul>
+                <li>Admin Login - Admin ID: admin1 | Password: adminpass1</li>
+                <li>Admin Login - Admin ID: admin2 | Password: adminpass2</li>
+                <li>Admin Login - Admin ID: sharedadmin | Password: sharedpass</li>
+                <li>Admin Login - Admin ID: commonadmin | Password: commonpass</li>
+            </ul>
+        </div>
     </div>
 
-    <script src="script.js"></script> <!-- Link to the external JavaScript file -->
+    <script src="script.js"></script>
 </body>
 </html>
