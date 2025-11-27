@@ -10,56 +10,54 @@
     <div class="container">
         <h1>Login</h1>
 
-        <!-- User Login Form -->
-        <div class="login-portal">
-            <h2>User Login</h2>
-            <form id="userLoginForm">
-                <div class="input-group">
-                    <label for="userId">User ID:</label>
-                    <input type="text" id="userId" required>
+        <div class="login-wrapper">
+            <!-- User Login Section -->
+            <div class="login-portal">
+                <h2>User Login</h2>
+                <form id="userLoginForm">
+                    <div class="input-group">
+                        <label for="userId">User ID:</label>
+                        <input type="text" id="userId" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="password">Password:</label>
+                        <input type="password" id="password" required>
+                    </div>
+                    <button type="submit">Login as User</button>
+                </form>
+                <div class="test-accounts">
+                    <h3>Test Accounts:</h3>
+                    <ul>
+                        <li>User ID: testuser1 | Password: password1</li>
+                        <li>User ID: testuser2 | Password: password2</li>
+                        <li>User ID: commonUser | Password: commonPass</li>
+                    </ul>
                 </div>
-                <div class="input-group">
-                    <label for="password">Password:</label>
-                    <input type="password" id="password" required>
-                </div>
-                <button type="submit">Login as User</button>
-            </form>
-        </div>
+            </div>
 
-        <!-- Admin Login Form -->
-        <div class="login-portal">
-            <h2>Admin Login</h2>
-            <form id="adminLoginForm">
-                <div class="input-group">
-                    <label for="adminId">Admin ID:</label>
-                    <input type="text" id="adminId" required>
+            <!-- Admin Login Section -->
+            <div class="login-portal">
+                <h2>Admin Login</h2>
+                <form id="adminLoginForm">
+                    <div class="input-group">
+                        <label for="adminId">Admin ID:</label>
+                        <input type="text" id="adminId" required>
+                    </div>
+                    <div class="input-group">
+                        <label for="adminPassword">Password:</label>
+                        <input type="password" id="adminPassword" required>
+                    </div>
+                    <button type="submit">Login as Admin</button>
+                </form>
+                <div class="test-accounts">
+                    <h3>Test Accounts:</h3>
+                    <ul>
+                        <li>Admin ID: admin1 | Password: adminpass1</li>
+                        <li>Admin ID: admin2 | Password: adminpass2</li>
+                        <li>Admin ID: commonUser | Password: commonPass</li>
+                    </ul>
                 </div>
-                <div class="input-group">
-                    <label for="adminPassword">Password:</label>
-                    <input type="password" id="adminPassword" required>
-                </div>
-                <button type="submit">Login as Admin</button>
-            </form>
-        </div>
-        
-        <!-- Test Accounts Information -->
-        <h2>Test Accounts</h2>
-        <div class="test-accounts">
-            <h3>Users</h3>
-            <ul>
-                <li>User Login - User ID: testuser1 | Password: password1</li>
-                <li>User Login - User ID: testuser2 | Password: password2</li>
-                <li>User Login - User ID: shareduser | Password: sharedpass</li>
-                <li>User Login - User ID: commonuser | Password: commonpass</li>
-            </ul>
-
-            <h3>Admins</h3>
-            <ul>
-                <li>Admin Login - Admin ID: admin1 | Password: adminpass1</li>
-                <li>Admin Login - Admin ID: admin2 | Password: adminpass2</li>
-                <li>Admin Login - Admin ID: shareduser | Password: sharedpass</li>
-                <li>Admin Login - Admin ID: commonuser | Password: commonpass</li>
-            </ul>
+            </div>
         </div>
     </div>
 
