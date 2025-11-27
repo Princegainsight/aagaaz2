@@ -1,0 +1,93 @@
+/* Global Styles */
+body {
+    font-family: 'Arial', sans-serif;
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(135deg, #73a5ff, #A3C1FF);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center; /* Center the content */
+    min-height: 100vh;
+}
+
+.container {
+    text-align: center;
+    padding: 20px;
+    width: 100%;
+    max-width: 1200px;
+}
+
+/* Card Styles */
+.card {
+    background: white;
+    padding: 40px;
+    border-radius: 15px;
+    box-shadow: 0 4px 25px rgba(0, 0, 0, 0.2);
+    animation: slideIn 0.5s ease forwards;
+    width: 100%;
+    max-width: 400px;
+    margin: auto;
+    transition: transform 0.3s ease; /* Smooth scaling effect on hover */
+}
+
+.card:hover {
+    transform: scale(1.03); /* Scale effect */
+}
+
+h1 {
+    margin-bottom: 20px;
+}
+
+/* Input Styles */
+.input {
+    margin: 15px 0;
+    padding: 12px;
+    width: 100%;
+    border: 2px solid #A3C1FF; /* Light border */
+    border-radius: 5px;
+    box-sizing: border-box;
+    transition: border 0.3s ease;
+}
+
+.input:focus {
+    border-color: #2F3C7E; /* Darker border on focus */
+    outline: none; /* Remove default outline */
+}
+
+/* Button Styles */
+button {
+    padding: 12px 20px;
+    border: none;
+    border-radius: 5px;
+    background-color: #2F3C7E;
+    color: white;
+    font-size: 16px;
+    font-weight: bold;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.2s;
+}
+
+button:hover {
+    background-color: #3548A6;
+    transform: translateY(-2px); /* Lift effect */
+}
+
+/* Animation */
+@keyframes slideIn {
+    from {
+        opacity: 0;
+        transform: translateY(-20px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Footer Styles */
+.footer-text {
+    margin-top: 15px;
+    color: white;
+    font-size: 16px;
+}

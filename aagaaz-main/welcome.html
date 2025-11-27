@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Welcome - Sports Tournament</title>
+    <link rel="stylesheet" href="styles.css">
+   
+<script src="./script.js"></script>
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="nav-container">
+            <div class="welcome-text">Welcome, <span id="userName"></span>!</div>
+            <button class="logout-button" onclick="logout()">Logout</button>
+        </div>
+    </nav>
+
+    <div class="welcome-container">
+        <h1>Enjoy the Tournament!</h1>
+
+        <div class="image-gallery">
+            <div class="image-container">
+                <a href="badminton.html">
+                <img src="badminton.jpg" alt="Badminton" class="sport-image">
+                <p class="caption">Badminton</p></a>
+            </div>
+            <div class="image-container">
+                 <a href="basketball.html">
+                <img src="basketball.webp" alt="Basketball" class="sport-image">
+                    <p class="caption">Basketball</p></a>
+            </div>
+            <div class="image-container">
+                <a href="cricket.html">
+                <img src="cricket.avif" alt="Cricket" class="sport-image">
+                    <p class="caption">Cricket</p></a>
+            </div>
+        </div>
+    </div>
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+            const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+document.getElementById('userName').textContent = loggedInUser.name || 'Guest';
+    });
+</script>
+
+    <nav class="bottom-nav">
+        <p>&copy; Prince</p>
+    </nav>
+</body>
+</html>

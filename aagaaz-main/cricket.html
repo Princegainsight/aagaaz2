@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cricket- Team Details</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="styles.css">
+<script src="./script.js"></script>
+</head>
+<body>
+    <nav class="top-nav">
+        <div class="nav-container">
+            <div class="welcome-text">Welcome, <span id="userName"></span>!</div>
+            <button class="logout-button" onclick="logout()">Logout</button>
+        </div>
+    </nav>
+
+    <div class="container">
+        <h1>Welcome to the Cricket tournament</h1>
+        <h2>Please fill the details to register yourself</h2>
+         <div class="card">
+        <form id="userForm">
+            <input type="text" id="name" class="input" placeholder="Enter your team name" required>
+            <input type="email" id="email" class="input" placeholder="Enter your email" required>
+            <input type="text" id="college" class="input" placeholder="Enter your college name" required>
+            <button type="submit">Submit</button>
+        </form>
+        <p class="footer-text">Join us for an exciting tournament!</p>
+    </div>
+      <script>
+           function logout() {
+        localStorage.removeItem('userName'); // Remove user name from local storage
+        window.location.href = 'index.html'; // Redirect to the login page
+    };
+
+    document.getElementById('userForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent form submission
+
+        // Get values from input fields
+        const name = document.getElementById('name').value;
+        const email = document.getElementById('email').value;
+        const college = document.getElementById('college').value;
+
+        // Display an alert with the entered information
+        const details = `Name: ${name}\nEmail: ${email}\nCollege: ${college}`;
+        const confirmation = confirm(`Please confirm your details:\n\n${details}`);
+
+        // If the user confirms, show a thank you alert and redirect
+        if (confirmation) {
+            alert('Thank you for filling out the details!');
+            logout();
+        }
+    });
+         document.addEventListener('DOMContentLoaded', function() {
+            const loggedInUser = JSON.parse(localStorage.getItem('loggedInUser'));
+document.getElementById('userName').textContent = loggedInUser.name || 'Guest';
+    });
+</script>
+
+    <nav class="bottom-nav">
+        <p>&copy; Prince</p>
+    </nav>
+</body>
+</html>
