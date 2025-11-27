@@ -2,16 +2,14 @@
 const users = [
     { id: "testuser1", password: "password1" },
     { id: "testuser2", password: "password2" },
-    { id: "shareduser", password: "sharedpass" }, // Shared between user and admin
-    { id: "commonuser", password: "commonpass" }  // Shared between user and admin
+    { id: "commonUser", password: "commonPass" } // Common user ID
 ];
 
 // Predefined admin credentials
 const admins = [
     { id: "admin1", password: "adminpass1" },
     { id: "admin2", password: "adminpass2" },
-    { id: "shareduser", password: "sharedpass" }, // Shared credentials for admin
-    { id: "commonuser", password: "commonpass" }  // Shared credentials for admin
+    { id: "commonUser", password: "commonPass" } // Common admin ID
 ];
 
 // User login form handling
