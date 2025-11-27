@@ -4,12 +4,193 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Welcome Page</title>
-    <link rel="stylesheet" href="styles.css">
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        .welcome-container {
+            width: 80%;
+            margin: 50px auto;
+            padding: 20px;
+            text-align: center;
+            background-color: white;
+            border-radius: 10px;
+            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+        }
+
+        h1 {
+            color: #333;
+        }
+
+        p {
+            color: #555;
+        }
+
+        .buttons {
+            margin: 20px 0;
+        }
+
+        button {
+            margin: 10px;
+            padding: 10px 20px;
+            font-size: 16px;
+            color: white;
+            background-color: #5cb85c;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s, transform 0.3s;
+        }
+
+        button:hover {
+            background-color: #4cae4c;
+            transform: translateY(-2px);
+        }
+
+        .dropdowns {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-around;
+        }
+
+        /* Generic dropdown */
+        select {
+            width: 200px;
+            padding: 10px;
+            font-size: 14px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            transition: border-color 0.3s;
+        }
+
+        select:hover {
+            border-color: #5cb85c;
+        }
+
+        /* Custom dropdown */
+        .custom-dropdown {
+            position: relative;
+            display: inline-block;
+            width: 200px;
+        }
+
+        .dropdown-selection {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border: 1px solid #ccc;
+            padding: 10px;
+            border-radius: 5px;
+            background-color: white;
+            cursor: pointer;
+            font-size: 14px;
+            transition: border-color 0.3s;
+        }
+
+        .dropdown-arrow {
+            margin-left: 10px;
+            transition: transform 0.3s;
+        }
+
+        .custom-dropdown.active .dropdown-arrow {
+            transform: rotate(180deg);
+        }
+
+        .dropdown-menu {
+            position: absolute;
+            width: 100%;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            background-color: white;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            margin-top: 5px;
+            display: none; /* Hidden by default */
+            z-index: 100;
+        }
+
+        .custom-dropdown.active .dropdown-menu {
+            display: block; /* Show dropdown menu when active */
+        }
+
+        .dropdown-item {
+            padding: 10px;
+            cursor: pointer;
+            font-size: 14px;
+            transition: background-color 0.3s;
+        }
+
+        .dropdown-item:hover {
+            background-color: #f1f1f1;
+        }
+    </style>
 </head>
 <body>
-    <div class="container">
-        <h1>Welcome!</h1>
+    <div class="welcome-container">
+        <h1 id="welcomeMessage">Welcome!</h1>
         <p>You have successfully logged in.</p>
+
+        <div class="buttons">
+            <button onclick="logout()">Logout</button>
+            <button>Button 1</button>
+            <button>Button 2</button>
+            <button>Button 3</button>
+            <button>Button 4</button>
+            <button>Button 5</button>
+            <button>Button 6</button>
+        </div>
+
+        <div class="dropdowns">
+            <div class="select-dropdown">
+                <label for="genericSelect">Generic Dropdown:</label>
+                <select id="genericSelect">
+                    <option value="option1">Option 1</option>
+                    <option value="option2">Option 2</option>
+                    <option value="option3">Option 3</option>
+                </select>
+            </div>
+
+            <div class="custom-dropdown" id="customDropdown">
+                <div class="dropdown-selection" onclick="toggleDropdown()">
+                    <span>Select an Option</span>
+                    <div class="dropdown-arrow">&#9660;</div>
+                </div>
+                <div class="dropdown-menu">
+                    <div class="dropdown-item">Custom Option 1</div>
+                    <div class="dropdown-item">Custom Option 2</div>
+                    <div class="dropdown-item">Custom Option 3</div>
+                </div>
+            </div>
+        </div>
     </div>
+
+    <script>
+        // Set the welcome message with user ID
+        const userId = localStorage.getItem('userId') || 'User';
+        document.getElementById('welcomeMessage').textContent = `Welcome, ${userId}!`;
+
+        // Logout function
+        function logout() {
+            window.location.href = 'index.html'; // Redirect to index page
+        }
+
+        // Toggle dropdown function
+        function toggleDropdown() {
+            const dropdown = document.getElementById('customDropdown');
+            dropdown.classList.toggle('active');
+        }
+
+        // Close dropdown when clicking outside
+        document.addEventListener('click', function(event) {
+            const isClickInside = document.getElementById('customDropdown').contains(event.target);
+            const dropdown = document.getElementById('customDropdown');
+            if (!isClickInside) {
+                dropdown.classList.remove('active');
+            }
+        });
+    </script>
 </body>
 </html>
