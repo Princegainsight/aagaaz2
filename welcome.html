@@ -1,121 +1,123 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Welcome Page</title>
-    <style>
-        body {
-            font-family: Arial, sans-serif;
-            background-color: #f2f2f2;
-            margin: 0;
-            padding: 0;
-        }
-        .welcome-container {
-            width: 80%;
-            margin: 50px auto;
-            padding: 20px;
-            text-align: center;
-            background-color: white;
-            border-radius: 10px;
-            box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
-            position: relative;
-        }
-        h1 {
-            color: #333;
-        }
-        p {
-            color: #555;
-        }
-        .logout-button {
-            position: absolute;
-            top: 20px;
-            right: 20px;
-            padding: 10px 20px;
-            font-size: 16px;
-            color: white;
-            background-color: #d9534f;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-        .logout-button:hover {
-            background-color: #c9302c;
-            transform: translateY(-2px);
-        }
-        .buttons {
-            margin: 80px 0 20px;
-        }
-        button {
-            margin: 10px;
-            padding: 10px 20px;
-            font-size: 16px;
-            color: white;
-            background-color: #5cb85c;
-            border: none;
-            border-radius: 5px;
-            cursor: pointer;
-            transition: background-color 0.3s, transform 0.3s;
-        }
-        button:hover {
-            background-color: #4cae4c;
-            transform: translateY(-2px);
-        }
-        .dropdowns {
-            margin-top: 20px;
-            display: flex;
-            justify-content: space-around;
-        }
-        select {
-            width: 200px;
-            padding: 10px;
-            font-size: 14px;
-            border-radius: 5px;
-            border: 1px solid #ccc;
-            transition: border-color 0.3s;
-        }
-        select:hover {
-            border-color: #5cb85c;
-        }
-    </style>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Welcome Page</title>
+<style>
+body {
+font-family: Arial, sans-serif;
+background-color: #f2f2f2;
+margin: 0;
+padding: 0;
+}
+.welcome-container {
+width: 80%;
+margin: 50px auto;
+padding: 20px;
+text-align: center;
+background-color: white;
+border-radius: 10px;
+box-shadow: 0 0 15px rgba(0, 0, 0, 0.2);
+position: relative;
+}
+h1 {
+color: #333;
+}
+p {
+color: #555;
+}
+.logout-button {
+position: absolute;
+top: 20px;
+right: 20px;
+padding: 10px 20px;
+font-size: 16px;
+color: white;
+background-color: #d9534f;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+transition: background-color 0.3s, transform 0.3s;
+}
+.logout-button:hover {
+background-color: #c9302c;
+transform: translateY(-2px);
+}
+.buttons {
+margin: 80px 0 20px;
+}
+button {
+margin: 10px;
+padding: 10px 20px;
+font-size: 16px;
+color: white;
+background-color: #5cb85c;
+border: none;
+border-radius: 5px;
+cursor: pointer;
+transition: background-color 0.3s, transform 0.3s;
+}
+button:hover {
+background-color: #4cae4c;
+transform: translateY(-2px);
+}
+.dropdowns {
+margin-top: 20px;
+display: flex;
+justify-content: space-around;
+}
+select {
+width: 200px;
+padding: 10px;
+font-size: 14px;
+border-radius: 5px;
+border: 1px solid #ccc;
+transition: border-color 0.3s;
+}
+select:hover {
+border-color: #5cb85c;
+}
+</style>
 </head>
 <body>
-    <div class="welcome-container">
-        <h1 id="welcomeMessage">Welcome!</h1>
-        <p>You have successfully logged in.</p>
-        <button class="logout-button" onclick="logout()">Logout</button>
-        <div class="buttons">
-            <button id="button1">Button 1</button>
-            <button id="button2">Button 2</button>
-            <button id="button3">Button 3</button>
-            <button id="button4">Button 4</button>
-            <button id="button5">Button 5</button>
-            <button id="button6">Button 6</button>
-        </div>
-    </div>
+<div class="welcome-container">
+<h1 id="welcomeMessage">Welcome!</h1>
+<p>You have successfully logged in.</p>
+<button class="logout-button" onclick="logout()">Logout</button>
+<div class="buttons">
+<button id="button1">Button 1</button>
+<button id="button2">Button 2</button>
+<button id="button3">Button 3</button>
+<button id="button4">Button 4</button>
+<button id="button5">Button 5</button>
+<button id="button6">Button 6</button>
+</div>
+</div>
 
-    <script>
-        // Function to get URL parameters
-        function getUrlParameter(name) {
-            const urlParams = new URLSearchParams(window.location.search);
-            return urlParams.get(name);
-        }
+<script>
+// Function to get URL parameters
+function getUrlParameter(name) {
+const urlParams = new URLSearchParams(window.location.search);
+return urlParams.get(name);
+}
 
-        // Get user ID and type from URL parameters
-        const userId = getUrlParameter('userId') || 'User';
-        const userType = getUrlParameter('userType') || 'user';
+// Get user ID and type from URL parameters
+const userId = getUrlParameter('userId') || 'User';
+const userType = getUrlParameter('userType') || 'user';
 
-        const welcomeMessageElement = document.getElementById('welcomeMessage');
-        if (userType === 'admin') {
-            welcomeMessageElement.textContent = `Welcome, Admin ${userId}!`;
-            aptrinsic('set', 'globalContext', {"version": "admin"});
-        } else {
-            welcomeMessageElement.textContent = `Welcome, User ${userId}!`;
-            aptrinsic('set', 'globalContext', {"version": "userLogin"});
-        }
+const welcomeMessageElement = document.getElementById('welcomeMessage');
+if (userType === 'admin') {
+welcomeMessageElement.textContent = `Welcome, Admin ${userId}!`;
+} else {
+welcomeMessageElement.textContent = `Welcome, ${userId}!`;
+}
+        
+        // Set the global context
 
-       
+        // Set gainsight PX global context and identification
+const version = userType === 'admin' ? 'admin' : 'user';
+        aptrinsic('set', 'globalContext', {"version": version}); // Set the version based on user type
         
         // Implementing the identify call for Gainsight PX
       // Predefined user credentials
@@ -132,9 +134,9 @@ aptrinsic("identify",
   {
   //User Fields
     "id": userId, // Required for logged in app users
-    "email": "jonathan@address.com",
-    "firstName": "Johnathan",
-    "lastName": "Scout",
+    "email": "johnatha@address.com",
+    "firstName": "sohnathan",
+    "lastName": "Smith",
     "signUpDate": 1522697426479, //unix time in ms
     "plan" : "gold", //Custom attributes - please create those custom attributes in Aptrinsic via Account Settings to be tracked.
     "price" : 95.5,
@@ -150,12 +152,13 @@ aptrinsic("identify",
 <!-- Gainsight PX Tag-->
 
 
-      
+        // Set the global context for PX
+        aptrinsic('set', 'globalContext', {"version": version2});
         
-        // Logout function
-        function logout() {
-            window.location.href = 'index.html'; // Redirect to index page
-        }
-    </script>
+// Logout function
+function logout() {
+window.location.href = 'index.html'; // Redirect to index page
+}
+</script>
 </body>
 </html>
