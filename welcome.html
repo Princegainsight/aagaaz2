@@ -109,12 +109,13 @@
         const welcomeMessageElement = document.getElementById('welcomeMessage');
         if (userType === 'admin') {
             welcomeMessageElement.textContent = `Welcome, Admin ${userId}!`;
+            aptrinsic('set', 'globalContext', {"version": "admin"});
         } else {
             welcomeMessageElement.textContent = `Welcome, ${userId}!`;
+            aptrinsic('set', 'globalContext', {"version": "userLogin"});
         }
 
-        // Set gainsight PX global context and identification
-        const version = userType === 'admin' ? 'admin' : 'user';
+       
         
         // Implementing the identify call for Gainsight PX
       // Predefined user credentials
