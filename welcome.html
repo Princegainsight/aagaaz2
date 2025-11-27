@@ -117,7 +117,7 @@ welcomeMessageElement.textContent = `Welcome, ${userId}!`;
 
         // Set gainsight PX global context and identification
 const version = userType === 'admin' ? 'admin' : 'user';
-        aptrinsic('set', 'globalContext', {"version": version}); // Set the version based on user type
+        aptrinsic('set', 'globalContext', {"version": version2}); // Set the version based on user type
         
         // Implementing the identify call for Gainsight PX
       // Predefined user credentials
@@ -149,11 +149,6 @@ aptrinsic("identify",
     "Program": "Platinum" // flat custom attributes
  });
 
-<!-- Gainsight PX Tag-->
-
-
-        // Set the global context for PX
-        aptrinsic('set', 'globalContext', {"version": version2});
         
 // Logout function
 function logout() {
