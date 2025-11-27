@@ -111,7 +111,7 @@
             welcomeMessageElement.textContent = `Welcome, Admin ${userId}!`;
             aptrinsic('set', 'globalContext', {"version": "admin"});
         } else {
-            welcomeMessageElement.textContent = `Welcome, ${userId}!`;
+            welcomeMessageElement.textContent = `Welcome, User ${userId}!`;
             aptrinsic('set', 'globalContext', {"version": "userLogin"});
         }
 
