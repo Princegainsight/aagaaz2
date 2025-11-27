@@ -6,7 +6,7 @@ body {
 }
 
 .container {
-    width: 300px;
+    width: 700px;
     margin: 50px auto;
     padding: 20px;
     background-color: white;
@@ -19,8 +19,18 @@ h1, h2, h3 {
     color: #333;
 }
 
+.login-wrapper {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
 .login-portal {
-    margin-bottom: 30px;
+    width: 45%;
+    background-color: #fafafa;
+    padding: 20px;
+    border-radius: 5px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
 }
 
 .input-group {
